@@ -37,3 +37,9 @@
     transform: translateY(0px)
   }
 }
+
+@media screen and (min-width: 1280px) {
+  /* html {
+    background-color: rgb(37, 50, 65);
+  } */
+}

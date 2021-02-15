@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "weekDay": "Monday",
+      "color": "bg-green-500"
+    },
+    {
+      "weekDay": "Tuesday",
+      "color": "bg-green-600"
+    },
+    {
+      "weekDay": "Wednesday",
+      "color": "bg-green-500"
+    },
+    {
+      "weekDay": "Thursday",
+      "color": "bg-green-600"
+    },
+    {
+      "weekDay": "Friday",
+      "color": "bg-purple-500"
+    },
+    {
+      "weekDay": "Saturday",
+      "color": "bg-purple-600"
+    },
+    {
+      "weekDay": "Sunday",
+      "color": "bg-red-500"
+    }
+  ]
+}

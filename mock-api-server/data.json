@@ -1,0 +1,38 @@
+{
+  "events": [
+    {
+      "name": "SSBM EU Newbie Showdown #6",
+      "time": "20:00",
+      "date": "2021-02-15",
+      "links": [
+        "Discord",
+        "SmashGG"
+      ]
+    },
+    {
+      "name": "Schweeklies #7",
+      "time": "20:00",
+      "date": "2021-02-17",
+      "links": [
+        "Discord",
+        "Other"
+      ]
+    },
+    {
+      "name": "Test Event #1",
+      "time": "18:00",
+      "date": "2021-02-19",
+      "links": [
+        "Challonge"
+      ]
+    },
+    {
+      "name": "Test Event #2",
+      "time": "19:00",
+      "date": "2021-02-20",
+      "links": [
+        "SmashGG"
+      ]
+    }
+  ]
+}
