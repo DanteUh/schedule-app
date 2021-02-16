@@ -1,28 +1,33 @@
 import React from 'react';
 import date from 'date-and-time';
 
-import Event from './Event';
+import Weekday from './Weekday';
 import { apiCall } from '../helpers/functions';
+import * as dayColors from '../app-data/dayColor.json';
 
 export default function ScheduleHook() {
   const [state, setState] = React.useState({
-    text: 'Hello',
     weekdays:[],
     events: [],
+    dayColors: [],
   });
 
   React.useEffect(() => {
-    const newWeekDays = setWeekDaysArray();
-
+    /* Do things on init */
     apiCall('http://localhost:4000/events', {method: 'GET'},
     (response) => {
-      setState({
-        ...state,
-        events: response,
-        weekdays: newWeekDays,
-      });
+      loadInitData(response);
     });
   }, []);
+
+  const loadInitData = (data) => {
+    setState({
+      ...state,
+      events: data,
+      weekdays: setWeekDaysArray(),
+      dayColors: dayColors.data,
+    })
+  }
 
   const setWeekDaysArray = () => {
     const now = new Date();
@@ -44,56 +49,22 @@ export default function ScheduleHook() {
 
   const renderWeekdays = state.weekdays.map((weekday, i) => {
     return(
-      <Weekday
-        key={i}
-        day={weekday.day}
-        date={weekday.date}
-      />
+      <div className="weekday-card w-full h-auto" key={i}>
+        <Weekday
+          day={weekday.day}
+          date={weekday.date}
+          events={state.events}
+          dayColors={state.dayColors}
+        />
+      </div>
     )
-  })
-  
-  const renderEvents = state.events.map((event, i) => {
-    return (
-      <Event
-        key={i}
-        eventName={event.name}
-        eventTime={event.time}
-        eventDate={event.date}
-        eventLinks={event.links}
-      />
-    )
-  })
+  }) 
 
   return(
     <>
-      <div>
-        {renderEvents}
+      <div className="weekday-card-container grid grid-cols-1 gap-4 xl:flex xl:flex-direction-row xl:justify-center xl:gap-0 xl:p-0 text-white p-1 h-auto">
+        {renderWeekdays}
       </div>
-      <button>Show Events</button>
     </>
-  );
-}
-
-function Weekday(props) {
-  //${weekdayColor[0].color}
-  return(
-    <div className="weekday-card w-full h-auto">
-      <div className={`justify-between shadow rounded xl:rounded-none xl:shadow-none p-2`}>
-        <div className="flex flex-row justify-center">
-          <p className="text-lg">{props.day}</p>
-          <svg className="h-6 w-6 md:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
-          </svg>
-          {/* <svg className="h-6 w-6 md:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg> */}
-        </div>
-      </div>
-
-      {/* Hidden card under the clickable day */}
-      <div className="shadow-md border-t-0 overflow-y-visible rounded rounded-t-none flex-1 xl:rounded-none xl:shadow-none xl:border-b-0 xl:min-h-44 overflow-y-hidden p-2 pb-3">
-        {/* {renderEvent(weekday)} */}
-      </div>
-    </div>
   );
 }
