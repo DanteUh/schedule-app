@@ -2,14 +2,18 @@ import React from 'react';
 
 export default function Event(props) {
   const renderLink = props.eventLinks.map((link, i) => {
-    const btnColor = link === 'Discord' ? ('bg-indigo-500')
-                      : link === 'SmashGG' ? ('bg-red-500')
-                      : link === 'Challonge' ? ('bg-orange')
-                      : ('bg-gray-500');
+    if (!link.name) {
+      return '';
+    }
+    
+    const btnColor = link.name === 'Discord' ? ('bg-indigo-500')
+                    : link.name === 'SmashGG' ? ('bg-red-500')
+                    : link.name === 'Challonge' ? ('bg-orange')
+                    : ('bg-gray-500');
     return(
       <div key={i} className={`container rounded-sm ${btnColor} p-2 mt-3`}>
-        <a href="#">
-          {link}
+        <a href={`${link.url}`}>
+          {link.name}
         </a>
       </div>
     );

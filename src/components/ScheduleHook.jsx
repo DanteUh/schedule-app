@@ -1,6 +1,6 @@
 import React from 'react';
 import date from 'date-and-time';
-
+import { useSelector } from 'react-redux';
 import Weekday from './Weekday';
 import { apiCall } from '../helpers/functions';
 import * as dayColors from '../app-data/dayColor.json';

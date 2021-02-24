@@ -5,8 +5,14 @@
       "time": "20:00",
       "date": "2021-02-14",
       "links": [
-        "Discord",
-        "SmashGG"
+        {
+          "name": "Discord",
+          "url": "https://discord.com/"
+        },
+        {
+          "name": "SmashGG",
+          "url": "https://smash.gg/"
+        }
       ]
     },
     {
@@ -14,8 +20,14 @@
       "time": "20:00",
       "date": "2021-02-13",
       "links": [
-        "Discord",
-        "Other"
+        {
+          "name": "Discord",
+          "url": "https://discord.com/"
+        },
+        {
+          "name": "Other",
+          "url": "https://google.com/"
+        }
       ]
     },
     {
@@ -23,7 +35,10 @@
       "time": "18:00",
       "date": "2021-02-15",
       "links": [
-        "Challonge"
+        {
+          "name": "Challonge",
+          "url": "https://challonge.com/"
+        }
       ]
     },
     {
@@ -31,7 +46,10 @@
       "time": "19:00",
       "date": "2021-02-11",
       "links": [
-        "SmashGG"
+        {
+          "name": "SmashGG",
+          "url": "https://smash.gg/"
+        }
       ]
     }
   ]

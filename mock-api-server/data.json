@@ -3,36 +3,106 @@
     {
       "name": "SSBM EU Newbie Showdown #6",
       "time": "20:00",
-      "date": "2021-02-16",
+      "date": "2021-02-27",
       "links": [
-        "Discord",
-        "SmashGG"
-      ]
+        {
+          "name": "Discord",
+          "url": "https://discord.com/"
+        },
+        {
+          "name": "SmashGG",
+          "url": "https://smash.gg/"
+        }
+      ],
+      "id": 0
     },
     {
+      "id": 1,
       "name": "Schweeklies #7",
       "time": "20:00",
-      "date": "2021-02-17",
+      "date": "2021-02-25",
       "links": [
-        "Discord",
-        "Other"
+        {
+          "name": "Discord",
+          "url": "https://discord.com/"
+        },
+        {
+          "name": "Other",
+          "url": "https://google.com/"
+        }
       ]
     },
     {
       "name": "Test Event #1",
       "time": "18:00",
-      "date": "2021-02-19",
+      "date": "2021-02-28",
       "links": [
-        "Challonge"
-      ]
+        {
+          "name": "Challonge",
+          "url": "https://challonge.com/"
+        }
+      ],
+      "id": 2
     },
     {
       "name": "Test Event #2",
       "time": "19:00",
-      "date": "2021-02-20",
+      "date": "2021-02-28",
       "links": [
-        "SmashGG"
-      ]
+        {
+          "name": "",
+          "url": ""
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": "Another Event",
+      "date": "2021-02-25",
+      "time": "19:30",
+      "links": [
+        {
+          "name": "google",
+          "url": "https://google.com"
+        },
+        {
+          "name": "",
+          "url": ""
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": "New Post Test Event",
+      "date": "2021-02-25",
+      "time": "18:00",
+      "links": [
+        {
+          "name": "Google",
+          "url": "https://google.com"
+        },
+        {
+          "name": "",
+          "url": ""
+        }
+      ],
+      "id": 5
+    },
+    {
+      "name": "Another test event",
+      "date": "2021-03-01",
+      "time": "17:30",
+      "links": [
+        {
+          "name": "Google",
+          "url": "https://google.com"
+        },
+        {
+          "name": "",
+          "url": ""
+        }
+      ],
+      "id": 6
     }
   ]
 }

@@ -2,7 +2,7 @@
 import * as types from '../actions/types';
 
 const initialState = {
-  asd: [],
+  events: [],
   loading: false,
   error: null,
 }
@@ -20,7 +20,7 @@ export default function(state = initialState, action) {
         ...state,
         loading: false,
         error: null,
-        asd: action.payload,
+        events: action.payload,
       };
 
     case types.GET_EVENTS_FAILED:

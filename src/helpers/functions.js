@@ -1,4 +1,4 @@
-export function apiCall(url='', options={}, callback) {
+export function apiCall(url='', options={}, callback = () => {}) {
   fetch(url, {
     headers: {
       'Accept': 'application/json',
