@@ -1,20 +1,30 @@
 import * as types from './types';
 import * as helpers from './helpers';
-import * as events from '../../app-data/events.json';
 
-export const getEventData = () => {
+export const apiRequest = (url='', options={}, actionType = '') => {
   return dispatch => {
-    const eventData = events.data;
-    
-    if (eventData) {
-      console.log(eventData)
-      dispatch({
-        type: types.GET_EVENTS_SUCCESS,
-        payload: eventData
-      });
-      return eventData;
-    } else {
-      dispatch(helpers.requestFailed(types.GET_EVENTS_FAILED, eventData));
-    }
-  }
-}
+    dispatch(helpers.requestFailed(types.FETCH_EVENTS_REQUEST));
+
+    fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      ...options
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      response.json();
+    })
+    .then(response => {
+      console.log(response)
+      dispatch(helpers.requestSuccess(actionType))
+    })
+    .catch(error => {
+      dispatch(helpers.requestFailed(types.FETCH_EVENTS_FAILED));
+    });
+  };
+};

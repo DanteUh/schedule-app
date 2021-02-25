@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import ScheduleHook from './components/ScheduleHook';
+import ScheduleHook from './components/Schedule';
 import Navbar from './components/Navbar';
-import Schedule from './components/Schedule';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <main>
         <div className="max-w-8xl mx-auto py-2 px-3 lg:p-0">
           <ScheduleHook/>
-          {/* <Schedule/> */}
         </div>
       </main>
     </div>
