@@ -1,11 +1,8 @@
 import React from 'react'
 import AddEventForm from './AddEventForm';
-import { useSelector } from 'react-redux';
 
 export default function AddEventModal(props) {
   const toggle = props.modalToggle ? '' : 'hidden';
-
-  useSelector(state => console.log(state.eventData));
 
   return (
     <div className={`${toggle} fixed z-10 inset-0 overflow-y-auto`}>

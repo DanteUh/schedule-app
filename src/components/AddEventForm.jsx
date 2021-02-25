@@ -1,25 +1,33 @@
 /* eslint-disable no-restricted-globals */
 import React from  'react';
 import { useForm } from 'react-hook-form';
-import { apiCall } from '../helpers/functions';
+import { useDispatch } from 'react-redux';
 
 export default function AddEventForm(props) {
-  const [state, setState] = React.useState({
-    name: '',
-    date: '',
-    time: '',
-    links: [],
-  });
-
+  const dispatch = useDispatch();
   const { register, errors, handleSubmit } = useForm();
 
-  const onSubmit = (data) => { 
-    console.log(JSON.stringify(data))   
-    apiCall('http://localhost:4000/events', {
+  const onSubmit = (data) => {
+    fetch('http://localhost:4000/events', {
         method: 'POST',
         body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       }
-    );
+    )
+    .then(response => {
+      if (!response.ok) {
+        return;
+      }
+
+      dispatch({
+        type: 'POST_EVENT_SUCCESS',
+        payload: data
+      })
+    })
+    .catch(error => console.log('Error', error));
   }
 
   return(
@@ -72,7 +80,7 @@ export default function AddEventForm(props) {
           </div>
         </div>
         <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+          <button onClick={props.handleToggle} type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
             Submit
           </button>
           <button onClick={props.handleToggle} type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">

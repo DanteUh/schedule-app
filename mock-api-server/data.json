@@ -1,108 +1,36 @@
 {
   "events": [
     {
-      "name": "SSBM EU Newbie Showdown #6",
-      "time": "20:00",
-      "date": "2021-02-27",
+      "name": "Newbie Showdown #9",
+      "date": "2021-02-25",
+      "time": "18:30",
       "links": [
-        {
-          "name": "Discord",
-          "url": "https://discord.com/"
-        },
         {
           "name": "SmashGG",
-          "url": "https://smash.gg/"
-        }
-      ],
-      "id": 0
-    },
-    {
-      "id": 1,
-      "name": "Schweeklies #7",
-      "time": "20:00",
-      "date": "2021-02-25",
-      "links": [
-        {
-          "name": "Discord",
-          "url": "https://discord.com/"
+          "url": "https://smash.gg/tournament/newbie-showdown-9"
         },
         {
-          "name": "Other",
-          "url": "https://google.com/"
+          "name": "",
+          "url": ""
         }
-      ]
+      ],
+      "id": 1
     },
     {
-      "name": "Test Event #1",
-      "time": "18:00",
-      "date": "2021-02-28",
+      "name": "Saturday Night LEVO #5",
+      "date": "2021-02-27",
+      "time": "16:00",
       "links": [
         {
-          "name": "Challonge",
-          "url": "https://challonge.com/"
+          "name": "SmashGG",
+          "url": "https://smash.gg"
+        },
+        {
+          "name": "Discord",
+          "url": "https://discord.com"
         }
       ],
       "id": 2
-    },
-    {
-      "name": "Test Event #2",
-      "time": "19:00",
-      "date": "2021-02-28",
-      "links": [
-        {
-          "name": "",
-          "url": ""
-        }
-      ],
-      "id": 3
-    },
-    {
-      "name": "Another Event",
-      "date": "2021-02-25",
-      "time": "19:30",
-      "links": [
-        {
-          "name": "google",
-          "url": "https://google.com"
-        },
-        {
-          "name": "",
-          "url": ""
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "New Post Test Event",
-      "date": "2021-02-25",
-      "time": "18:00",
-      "links": [
-        {
-          "name": "Google",
-          "url": "https://google.com"
-        },
-        {
-          "name": "",
-          "url": ""
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "Another test event",
-      "date": "2021-03-01",
-      "time": "17:30",
-      "links": [
-        {
-          "name": "Google",
-          "url": "https://google.com"
-        },
-        {
-          "name": "",
-          "url": ""
-        }
-      ],
-      "id": 6
     }
   ]
 }
