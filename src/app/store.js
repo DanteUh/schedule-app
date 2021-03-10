@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import eventData from '../store/reducers/eventData';
+
+import eventsReducer from '../slices/events';
+
+const reducer = {
+  events: eventsReducer,
+}
 
 export default configureStore({
-  reducer: {
-    eventData,
-  },
+  reducer,
 });

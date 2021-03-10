@@ -3,46 +3,27 @@ import date from 'date-and-time';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Weekday from './Weekday';
-import * as types from '../store/actions/types';
-import * as dayColors from '../app-data/dayColor.json';
+
+import { apiRequest } from '../slices/eventsActions';
+import { eventsSelector, getEventsSuccess } from '../slices/events';
+import * as dayColorsData from '../app-data/dayColor.json';
 
 export default function ScheduleHook() {
-  const eventData = useSelector(state => state.eventData);
+  const { events } = useSelector(eventsSelector);
   const dispatch = useDispatch();
 
-  const [state, setState] = React.useState({
-    weekdays:[],
-    dayColors: [],
-  });
+  const [weekdays, setWeekdays] = React.useState([]);
+  const [dayColors, setdayColors] = React.useState([]);
 
   React.useEffect(() => {
     /* Do things on init */
-    fetch('http://localhost:4000/events', {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(response => {
-      dispatch({
-        type: types.GET_EVENTS_SUCCESS,
-        payload: response
-      });
-    })
-    .catch(error => console.log('Error', error));
+    dispatch(apiRequest('http://localhost:4000/events', {method: 'GET'}, getEventsSuccess));
+  }, [dispatch]);
 
-    loadInitData();
+  React.useEffect(() => {
+    setWeekdays(setWeekDaysArray());
+    setdayColors(dayColorsData.data);
   }, []);
-
-  const loadInitData = (data) => {
-    setState({
-      ...state,
-      weekdays: setWeekDaysArray(),
-      dayColors: dayColors.data,
-    })
-  }
 
   const setWeekDaysArray = () => {
     const now = new Date();
@@ -62,18 +43,20 @@ export default function ScheduleHook() {
     });
   }
 
-  const renderWeekdays = state.weekdays.map((weekday, i) => {
+  const renderWeekdays = weekdays.map((weekday, i) => {
     return(
       <div className="weekday-card w-full h-auto" key={i}>
         <Weekday
           day={weekday.day}
           date={weekday.date}
-          events={eventData.events}
-          dayColors={state.dayColors}
+          events={events}
+          dayColors={dayColors}
         />
       </div>
     )
   });
+
+  console.log(events);
 
   return(
     <>
