@@ -30,8 +30,12 @@ const eventsSlice = createSlice({
         When we get events we set the whole payload to events.
         Now we want to delete item from payload from the old event state.
       */
-      console.log(state)
       //state.events = state.events.filter(event => event.id !== payload.id);
+      state.loading = false;
+      state.hasErrors = false;
+    },
+    addEventSuccess: (state, { payload }) => {
+      state.events = [...state.events, payload];
       state.loading = false;
       state.hasErrors = false;
     }
@@ -39,7 +43,13 @@ const eventsSlice = createSlice({
 });
 
 // Actions to dispatch (instead of action types)
-export const { fetchEvents, fetchEventsFailure, getEventsSuccess, deleteEventSuccess } = eventsSlice.actions;
+export const {
+  fetchEvents,
+  fetchEventsFailure,
+  getEventsSuccess,
+  deleteEventSuccess,
+  addEventSuccess,
+} = eventsSlice.actions;
 
 // Selector
 export const eventsSelector = state => state.events;
