@@ -18,6 +18,7 @@ export default function Weekday(props) {
         eventTime={event.time}
         eventDate={event.date}
         eventLinks={event.links}
+        eventId={event.id}
       />
     );
   });

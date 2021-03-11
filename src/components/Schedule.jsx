@@ -8,6 +8,8 @@ import { apiRequest } from '../slices/eventsActions';
 import { eventsSelector, getEventsSuccess } from '../slices/events';
 import * as dayColorsData from '../app-data/dayColor.json';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default function ScheduleHook() {
   const { events } = useSelector(eventsSelector);
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ export default function ScheduleHook() {
 
   React.useEffect(() => {
     /* Do things on init */
-    dispatch(apiRequest('http://localhost:4000/events', {method: 'GET'}, getEventsSuccess));
+    dispatch(apiRequest(`${API_URL}`, '', {method: 'GET'}, getEventsSuccess));
   }, [dispatch]);
 
   React.useEffect(() => {
