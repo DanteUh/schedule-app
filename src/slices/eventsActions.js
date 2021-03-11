@@ -1,11 +1,13 @@
 import { fetchEvents, fetchEventsFailure } from './events';
 
 // Async thunk action
-export function apiRequest(url = '', options = {}, actionType = () => {}) {
+export function apiRequest(url = '', id = '', options = {}, actionType = () => {}) {
   return async dispatch => {
     dispatch(fetchEvents());
 
-    fetch(url, {
+    console.log(actionType)
+
+    fetch(`${url}${id}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -14,8 +16,7 @@ export function apiRequest(url = '', options = {}, actionType = () => {}) {
     })
     .then(response => response.json())
     .then(response => {
-      console.log(response);
-      dispatch(actionType(response));
+      dispatch(actionType(response, id));
     })
     .catch(error => {
       dispatch(fetchEventsFailure());
