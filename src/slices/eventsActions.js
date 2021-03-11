@@ -5,8 +5,6 @@ export function apiRequest(url = '', id = '', options = {}, actionType = () => {
   return async dispatch => {
     dispatch(fetchEvents());
 
-    console.log(actionType)
-
     fetch(`${url}${id}`, {
       headers: {
         'Accept': 'application/json',

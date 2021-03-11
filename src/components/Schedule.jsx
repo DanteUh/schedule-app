@@ -30,7 +30,6 @@ export default function ScheduleHook() {
   const setWeekDaysArray = () => {
     const now = new Date();
     const pattern = date.compile('dddd, YYYY-MM-DD');
-    // We will always have +6 days from now
     const dayNumbersArray = [0, 1, 2, 3, 4, 5, 6];
 
     return createDayObj(dayNumbersArray, now, pattern);
@@ -57,8 +56,6 @@ export default function ScheduleHook() {
       </div>
     )
   });
-
-  console.log(events);
 
   return(
     <>
